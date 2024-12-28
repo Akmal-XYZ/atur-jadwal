@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Atur Jadwal Pertandingan</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+        
+        h1 {
+            text-align: center;
+            color: #4CAF50;
+        }
+        
+        h2 {
+            color: #333;
+        }
+        
+        label {
+            margin-right: 10px;
+        }
+        
+        select, input[type="date"], input[type="time"], button {
+            padding: 8px;
+            margin: 5px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            font-size: 16px;
+        }
+        
+        button {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+        
+        button:hover {
+            background-color: #45a049;
+            transform: scale(1.05);
+        }
+        
+        .jadwal-container {
+            margin-top: 20px;
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        
+        li {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .editable {
+            flex-grow: 1;
+            border: 1px solid #ccc;
+            padding: 5px;
+            border-radius: 4px;
+            transition: border-color 0.3s;
+        }
+        
+        .editable:focus {
+            border-color: #4CAF50;
+            outline: none;
+        }
+        
+        .delete-button {
+            margin-left: 10px;
+            color: red;
+            cursor: pointer;
+            border: none;
+            background: none;
+            font-weight: bold;
+        }
+        
+        .delete-button:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+<h1>Atur Jadwal La Nigga</h1>
+
+<div>
+    <label for="tim1">Pilih Tim 1:</label>
+    <select id="tim1">
+        <option value="PANTOMIC">PANTOMIC</option>
+        <option value="AMBARAWA TREX">AMBARAWA TREX</option>
+        <option value="Ambative">Ambative</option>
+        <option value="ETERNAL DARKNES GENG">ETERNAL DARKNES GENG</option>
+        <option value="EVOS SA-MP">EVOS SA-MP</option>
+        <option value="EXONCROWD">EXONCROWD</option>
+        <option value="Brooklyn">Brooklyn</option>
+        <option value="MATADOR 1945th">MATADOR 1945th</option>
+        <option value="𝑭𝖗𝖊𝖊 𝑫𝖔𝖚𝖌𝖘 𝐍𝖊𝖎𝖌𝖍𝖙𝖇𝖔𝖗𝖍">𝑭𝖗𝖊𝖊 𝑫𝖔𝖚𝖌𝖘 𝐍𝖊𝖎𝖌𝖍𝖙𝖇𝖔𝖗𝖍</option>
+        <option value="o'block">o'block</option>
+        <option value="Vguezcyz">Vguezcyz</option>
+        <option value="PULL MY DICK">PULL MY DICK</option>
+        <option value="SUKI LIAR ONTOPP">SUKI LIAR ONTOPP</option>
+        <option value="TeamOgahMundur">TeamOgahMundur</option>
+        <option value="Tempe Orek">Tempe Orek</option>
+        <option value="The San Diego California">The San Diego California</option>
+        <option value="Tiger Latin Kings">Tiger Latin Kings</option>
+        <option value="AKAMSI">AKAMSI</option>
+        <option value="AIMSTAR">AIMSTAR</option>
+        <option value="Brotherhood">Brotherhood</option>
+        <option value="8 SALVATRUCHA">8 SALVATRUCHA</option>
+        <option value="Gelatik families">Gelatik families</option>
+        <option value="PINGKY blinders">PINGKY blinders</option>
+        <option value="The gathering of all stars">The gathering of all stars</option>
+        <option value="Bounty Hunter Watts Bloods">Bounty Hunter Watts Bloods</option>
+        <option value="PARTYAN OKEPZ">PARTYAN OKEPZ</option>
+        <option value="ELPADRON">ELPADRON</option>
+        <option value="VELOZZ">VELOZZ</option>
+        <option value="PIER">PIER</option>
+        <option value="LESMANA FAMILY">LESMANA FAMILY</option>
+        <option value="NOTSUPERSTAR">NOTSUPERSTAR</option>
+        <option value="CRUEL STREET RASCAL">CRUEL STREET RASCAL</option>
+        <option value="ELGANADOR SQUAD">ELGANADOR SQUAD</option>
+        <option value="REAL MAGRIB">REAL MAGRIB</option>
+        <option value="AMBALONA">AMBALONA</option>
+        <option value="ELPATRON">ELPATRON</option>
+        <option value="4K">4K</option>
+        <option value="NATUS">NATUS</option>
+    </select>
+    
+    <label for="tim2">Pilih Tim Lawan:</label>
+    <select id="tim2">
+        <option value="PANTOMIC">PANTOMIC</option>
+        <option value="AMBARAWA TREX">AMBARAWA TREX</option>
+        <option value="Ambative">Ambative</option>
+        <option value="ETERNAL DARKNES GENG">ETERNAL DARKNES GENG</option>
+        <option value="EVOS SA-MP">EVOS SA-MP</option>
+        <option value="EXONCROWD">EXONCROWD</option>
+        <option value="Brooklyn">Brooklyn</option>
+        <option value="MATADOR 1945th">MATADOR 1945th</option>
+        <option value="𝑭𝖗𝖊𝖊 𝑫𝖔𝖚𝖌𝖘 𝐍𝖊𝖎𝖌𝖍𝖙𝖇𝖔𝖗𝖍">𝑭𝖗𝖊𝖊 𝑫𝖔𝖚𝖌𝖘 𝐍𝖊𝖎𝖌𝖍𝖙𝖇𝖔𝖗𝖍</option>
+        <option value="o'block">o'block</option>
+        <option value="Vguezcyz">Vguezcyz</option>
+        <option value="PULL MY DICK">PULL MY DICK</option>
+        <option value="SUKI LIAR ONTOPP">SUKI LIAR ONTOPP</option>
+        <option value="TeamOgahMundur">TeamOgahMundur</option>
+        <option value="Tempe Orek">Tempe Orek</option>
+        <option value="The San Diego California">The San Diego California</option>
+        <option value="Tiger Latin Kings">Tiger Latin Kings</option>
+        <option value="AKAMSI">AKAMSI</option>
+        <option value="AIMSTAR">AIMSTAR</option>
+        <option value="Brotherhood">Brotherhood</option>
+        <option value="8 SALVATRUCHA">8 SALVATRUCHA</option>
+        <option value="Gelatik families">Gelatik families</option>
+        <option value="PINGKY blinders">PINGKY blinders</option>
+        <option value="The gathering of all stars">The gathering of all stars</option>
+        <option value="Bounty Hunter Watts Bloods">Bounty Hunter Watts Bloods</option>
+        <option value="PARTYAN OKEPZ">PARTYAN OKEPZ</option>
+        <option value="ELPADRON">ELPADRON</option>
+        <option value="VELOZZ">VELOZZ</option>
+        <option value="PIER">PIER</option>
+        <option value="LESMANA FAMILY">LESMANA FAMILY</option>
+        <option value="NOTSUPERSTAR">NOTSUPERSTAR</option>
+        <option value="CRUEL STREET RASCAL">CRUEL STREET RASCAL</option>
+        <option value="ELGANADOR SQUAD">ELGANADOR SQUAD</option>
+        <option value="REAL MAGRIB">REAL MAGRIB</option>
+        <option value="AMBALONA">AMBALONA</option>
+        <option value="ELPATRON">ELPATRON</option>
+        <option value="4K">4K</option>
+        <option value="NATUS">NATUS</option>
+    </select>
+</div>
+
+<div>
+    <label for="tanggal">Tanggal:</label>
+    <input type="date" id="tanggal">
+    
+    <label for="jam">Jam:</label>
+    <input type="time" id="jam">
+    
+    <button id="aturJadwal">Atur Jadwal</button>
+    <button id="salinJadwal">Salin Semua Jadwal dan kirim ke akmal</button>
+</div>
+
+<div class="jadwal-container" id="jadwalContainer">
+    <h2>Jadwal Pertandingan:</h2>
+    <ul id="jadwalList"></ul>
+</div>
+
+<script>
+    function formatTanggal(tanggal) {
+        const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+        return new Date(tanggal).toLocaleDateString('id-ID', options);
+    }
+
+    function loadJadwal() {
+        const jadwal = JSON.parse(localStorage.getItem('jadwal')) || [];
+        jadwal.forEach(jadwalItem => {
+            addJadwalToList(jadwalItem);
+        });
+    }
+
+    function addJadwalToList(jadwalText) {
+        const listItem = document.createElement('li');
+        
+        const editableText = document.createElement('span');
+        editableText.textContent = jadwalText;
+        editableText.className = 'editable';
+        editableText.contentEditable = true;
+        editableText.addEventListener('focusout', function() {
+            // Save changes on focus out
+            editableText.textContent = editableText.textContent || jadwalText; // Prevent empty
+            saveJadwalToLocalStorage(); // Update local storage
+        });
+
+        const deleteButton = document.createElement('button');
+        deleteButton.textContent = 'Delete';
+        deleteButton.className = 'delete-button';
+        deleteButton.addEventListener('click', function() {
+            listItem.remove();
+            saveJadwalToLocalStorage(); // Update local storage
+        });
+
+        listItem.appendChild(editableText);
+        listItem.appendChild(deleteButton);
+        document.getElementById('jadwalList').appendChild(listItem);
+    }
+
+    function saveJadwalToLocalStorage() {
+        const jadwalItems = document.querySelectorAll('#jadwalList .editable');
+        const jadwal = Array.from(jadwalItems).map(item => item.textContent);
+        localStorage.setItem('jadwal', JSON.stringify(jadwal));
+    }
+
+    document.getElementById('aturJadwal').addEventListener('click', function() {
+        const tim1 = document.getElementById('tim1').value;
+        const tim2 = document.getElementById('tim2').value;
+        const tanggal = document.getElementById('tanggal').value;
+        const jam = document.getElementById('jam').value;
+
+        if (tim1 === tim2) {
+            alert('Tim tidak boleh sama!');
+            return;
+        }
+
+        const formattedTanggal = formatTanggal(tanggal);
+        const formattedJam = jam + ' WIB';
+        
+        const jadwalText = `{ date: "${formattedTanggal}", time: "${formattedJam}", team1: "${tim1.charAt(0).toUpperCase() + tim1.slice(1)}", team2: "${tim2.charAt(0).toUpperCase() + tim2.slice(1)}" },`;
+        
+        addJadwalToList(jadwalText);
+        saveJadwalToLocalStorage(); // Save to local storage
+
+        // Tidak mereset input fields
+        // document.getElementById('tanggal').value = '';
+        // document.getElementById('jam').value = '';
+    });
+
+    document.getElementById('salinJadwal').addEventListener('click', function() {
+        const jadwalItems = document.querySelectorAll('#jadwalList .editable');
+        let allJadwal = '';
+
+        jadwalItems.forEach(function(item) {
+            allJadwal += item.textContent + '\n'; // Concatenate all jadwal
+        });
+
+        navigator.clipboard.writeText(allJadwal).then(function() {
+            alert('Semua jadwal berhasil disalin!');
+        }, function(err) {
+            alert('Gagal menyalin teks: ', err);
+        });
+    });
+
+    // Load jadwal from local storage on page load
+    loadJadwal();
+</script>
+
+<style>
+    body {
+        background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQkxaH5fYQP4Ijuvo9xeufq4gdVQTkpD4YSYj0PHvsLn-6hr-zhDa_6hSY&s=10');
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+    }
+</style>
+
+<style>
+    @keyframes colorBlink {
+        0%, 100% { color: #ff0000; text-shadow: 0 0 20px #ff0000; }
+        33% { color: #ff0000; text-shadow: 0 0 20px #ff0000; }
+        66% { color: #ff0000; text-shadow: 0 0 20px #ff0000; }
+    }
+    h1 {
+        animation: colorBlink 3s infinite;
+    }
+</style>
+
+</body>
+</html>
